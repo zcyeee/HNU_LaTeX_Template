@@ -34,8 +34,8 @@
 
 但由于 Overleaf 审核较慢，模板若有更新不能及时同步，因此也可以在 [GitHub Releases](https://github.com/zcyeee/HNU_LaTeX_Template/releases) 中下载模板源文件 `hnu_template.zip` ，在 Overleaf 中上传该压缩文件以创建一个新项目。注意，在正式编译前，需要先在 Overleaf 界面左上角点击 "Menu"：
 
-- 选择 "Compiler" 为 "XeLaTeX"
-- 选择 "TeX Live version" 为 "2023" 
+- **选择 "Compiler" 为 "XeLaTeX"**
+- **选择 "TeX Live version" 为 "2023"** 
 
 
 
