@@ -1,0 +1,266 @@
+% Author: Chenyang Zhang
+% License: LaTeX Project Public License v1.3c
+% 完整编译: XeLaTex -> BibTex -> XeLaTex -> XeLaTex
+% GitHub项目地址：
+
+%%%%%%%%%%%%%%%%%%%%%%%%  文档配置  %%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+    report,     % 文档类型
+    oneside,    % 单双栏
+    UTF8,       % 字符集
+    zihao=-4    % 全局字号（-4是小四号的意思）
+]{config} % 配置文件模板 config.cls
+
+% 封面图片定义
+\def \titlePageImages{
+    \includegraphics[width=0.48\textwidth] {figures/logos/HNU-logo.pdf}\\ % 湖南大学校徽
+    \vspace{10pt}
+    \includegraphics[width=0.43\textwidth] {figures/logos/HNU-title.png}\\ % 湖南大学校名
+}
+
+% 文档信息定义
+\def \majorTitle   {某某某某课程论文} % 大标题
+\def \minorTitleCN {湖南大学课程论文模板（非官方）使用指南} % 中文标题
+\def \minorTitleEN {Hunan University Course Paper Template (Unofficial) Usage Guidelines} % 英文标题
+
+% 个人信息定义
+\def \titlePageInfoBox{
+    % 参数：#1下划线长度 #2字号 #3标题 #4内容
+    \infobox{6.00cm}{0.65cm}{学生姓名}{张某某}\\
+    \infobox{6.00cm}{0.65cm}{学生学号}{202118070200}\\
+    \infobox{6.00cm}{0.65cm}{专业班级}{统计学xxxx班}\\
+    \infobox{6.00cm}{0.65cm}{指导老师}{张某某}\\
+    \infobox{6.00cm}{0.65cm}{所在院系}{金融与统计学院}\\
+}
+
+% 设置行间距为1.5倍
+\linespread{1.5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%  文档开始  %%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% 封面
+\CoverPage
+    {right} % 封面类型：both、left、right、empty
+    {0.900cm} % 大标题字号大小
+    {0.725cm} % 中文标题字号大小
+    {0.700cm} % 英文标题字号大小
+
+%%%%%%%%%%%%%%%%%%%%%  正文前页眉页脚  %%%%%%%%%%%%%%%%%%%%%%
+
+% 页眉（关闭页眉务必将页眉类型设为empty）
+\Header
+    {common} % 页眉类型：common、publish、empty
+    {1pt} % 上分隔线宽度
+    {1pt} % 两线距离
+    {0.5pt} % 下分割线宽度
+    {} % 页眉左自定义内容（文本或图片）
+    {\includegraphics[width=0.25\textwidth]{figures/logos/HNU-title-EN.png}} % 页眉中自定义内容（文本或图片）
+    {} % 页眉右自定义内容（文本或图片）
+
+%============================================%
+
+% 页脚（关闭页脚务必将页脚类型设为empty） 
+\Footer
+    {common} % 页脚类型：common、publish、empty
+    {0pt} % 上分隔线宽度
+    {0pt} % 两线距离
+    {0pt} % 下分割线宽度
+    {} % 页脚左自定义内容（文本或图片）
+    {\thepage} % 页脚中自定义内容（文本或图片）
+    {} % 页脚右自定义内容（文本或图片）
+
+%============================================%
+
+% 页数样式 参数：#1起始页数
+\SetRomanPageNumber{} % 设置罗马数字页码
+% \SetArabicPageNumber{} % 设置阿拉伯数字页码
+\ResetCounter{1} % 重置页数
+
+%%%%%%%%%%%%%%%%%%%%%%%%  摘要  %%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstractCN}[0.6cm] % 中文摘要，参数：#1中文摘要标题字号
+
+摘要
+
+% 中文关键词
+\def\keywordsCN{关键词1；关键词2；关键词3；关键词4；关键词5}
+
+\end{abstractCN}
+
+%============================================%
+
+\begin{abstractEN}[0.6cm] % 英文摘要，参数：#1英文摘要标题字号
+
+abstract
+
+% 英文关键词
+\def\keywordsEN{keyword 1; keyword 2; keyword 3; keyword 4; keyword 5}
+
+\end{abstractEN}
+
+%%%%%%%%%%%%%%%%%%%%%%%%  启用目录  %%%%%%%%%%%%%%%%%%%%%%%%
+
+% 目录，参数： 
+% #1目录类型：next(分页显示)、current(同页显示)
+% #2目录行距
+% #3目录标题
+% #4当前章节名
+\contentPage{next}{1.5}{目~~~~录}{目录}
+\contentpageOfFigures{next}{1.5}{图目录}{图目录}
+\contentpageOfTables{current}{1.5}{表目录}{表目录}
+
+%%%%%%%%%%%%%%%%%%%%%%%%  启用水印  %%%%%%%%%%%%%%%%%%%%%%%%
+
+% 若正文不需要水印把这部分命令删掉就好
+\imageWatermark % 图片水印
+    {0} % 旋转角度
+    {0.7} % 放缩倍率
+    {0.02} % 透明度 0-1
+    {figures/logos/HNU-logo.eps} % 图片路径
+
+%%%%%%%%%%%%%%%%%%%%%%  正文页眉页脚  %%%%%%%%%%%%%%%%%%%%%%%
+
+% 页眉（关闭页眉务必将页眉类型设为empty）
+\Header
+    {common} % 页眉类型：common、publish、empty
+    {1pt} % 上分隔线宽度
+    {1pt} % 两线距离
+    {0.5pt} % 下分割线宽度
+    {Hunan University} % 页眉左自定义内容（文本或图片）
+    {} % 页眉中自定义内容（文本或图片）}
+    {\currentChapterInfo} % 页眉右自定义内容（文本或图片）
+
+%============================================%
+
+% 页脚（关闭页脚务必将页脚类型设为empty） 
+\Footer
+    {common} % 页脚类型：common、publish、empty
+    {0pt} % 上分隔线宽度
+    {0pt} % 两线距离
+    {0pt} % 下分割线宽度
+    {} % 页脚左自定义内容（文本或图片）
+    {\thepage} % 页脚中自定义内容（文本或图片）
+    {} % 页脚右自定义内容（文本或图片）
+
+%============================================%
+
+% 页数样式 参数：#1起始页数
+% \SetRomanPageNumber{} % 设置罗马数字页码
+\SetArabicPageNumber{} % 设置阿拉伯数字页码
+\ResetCounter{1} % 重置页数
+
+%%%%%%%%%%%%%%%%%%%%%%%%%  正文  %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{一级标题}
+
+\section{二级标题}
+
+\subsection{三级标题}
+
+\subsubsection{四级标题}
+
+图片展示测试，如图 \ref{fig:example}。
+
+\begin{figure}[H] % 位置固定
+	\centering % 居中
+	\includegraphics[width=0.7\textwidth]{figures/example1.jpg}
+    % \caption*{图片的说明文字。} % 图片说明文字
+	\caption{图片示例} % 图片标题
+	\label{fig:example} % 图片标签
+\end{figure}
+\vspace{-0.7em}  % 减少图片与下方正文间的间距
+
+
+表格展示测试，如表 \ref{tab:example}。
+
+\begin{table}[H] % 表格位置固定
+    \centering
+    \caption{表格示例} % 表格表题
+    \renewcommand\arraystretch{0.85} % 定义表格行距
+    \label{tab:example} % 表格标签
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{表头1} & \textbf{表头2} & \textbf{表头3} & \textbf{表头4} \\ \midrule
+2    & 0     & 0    & 3    \\
+0    & 7     & 2    & 1    \\ \bottomrule
+\end{tabular}
+\end{table}
+\vspace{-0.5em}  % 减少表格与下方正文间的间距
+
+
+公式测试：
+% 调整数学环境中的公式上方和下方的间距
+\abovedisplayshortskip=4pt
+\belowdisplayshortskip=7pt
+\abovedisplayskip=4pt
+\belowdisplayskip=7pt
+\begin{gather*}%不会产生编号
+TOM_{ij} = \frac{ \sum_k A_{ik} + A_{jk} - A_{ij} }{ min\{ \sum_k A_{ik}, \sum_k A_{jk} \} + (1 - A_{ij}) }
+\end{gather*}
+
+
+引用测试\cite{mao2021correlation}，无序列表测试：
+
+\begin{itemize}[itemsep=2pt,topsep=1pt,parsep=1pt] % 调整itemize的间距
+
+\item 测试试试试
+\item 测试试试试
+
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%  参考文献  %%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{references}
+    \bibliography{references.bib} % 指定.bib文件路径
+\end{references}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%  附录  %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\StartAppendix % 启用附录
+
+\chapter{附录}
+
+附录
+
+%%%%%%%%%%%%%%%%%%%%%%%  正文后页眉  %%%%%%%%%%%%%%%%%%%%%%
+
+% 页眉（关闭页眉务必将页眉类型设为empty）
+\Header
+    {common} % 页眉类型：common、publish、empty
+    {1pt} % 上分隔线宽度
+    {1pt} % 两线距离
+    {0.5pt} % 下分割线宽度
+    {} % 页眉左自定义内容（文本或图片）
+    {\includegraphics[width=0.25\textwidth]{figures/logos/HNU-title-EN.png}} % 页眉中自定义内容（文本或图片）
+    {} % 页眉右自定义内容（文本或图片）
+
+%============================================%
+
+% 页脚（关闭页脚务必将页脚类型设为empty） 
+\Footer
+    {common} % 页脚类型：common、publish、empty
+    {0pt} % 上分隔线宽度
+    {0pt} % 两线距离
+    {0pt} % 下分割线宽度
+    {} % 页脚左自定义内容（文本或图片）
+    {\thepage} % 页脚中自定义内容（文本或图片）
+    {} % 页脚右自定义内容（文本或图片）
+
+%============================================%
+
+% 页数样式 参数：#1起始页数
+% \setRomanPageNumber{1} % 设置罗马数字页码
+% \setArabicPageNumber{1} % 设置阿拉伯数字页码
+
+%%%%%%%%%%%%%%%%%%%%%%%%%  致谢  %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\StartAcknowledgements % 启用致谢
+
+致谢
+
+\end{document}
