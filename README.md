@@ -44,7 +44,7 @@
 
 在本地编译时需要配置好 LaTeX 环境，并推荐使用 Visual Studio Code 配合 LaTeX workshop 插件作为编辑器。
 
-模板编译顺序为：XeLaTex -> BibTex -> XeLaTex -> XeLaTex。
+模板编译顺序为：XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX。
 
 由于能力与时间有限，**作者并未在本地编译测试成功**。若有同学在本地测试成功，同样欢迎联系：chenyang@hnu.edu.cn。
 
