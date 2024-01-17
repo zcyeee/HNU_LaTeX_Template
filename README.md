@@ -30,7 +30,7 @@
 
 [Overleaf](https://www.overleaf.com/) 是一个线上 LaTeX 编辑器，可以在不安装任何工具的情况下编写 LaTeX 文档，同时也可以和其他人共享文档，共同编辑。该模板便是在 Overleaf 上整理编写完成并测试通过的。
 
-需要使用时可以直接在 Overleaf 的 Templates 中搜索 “湖南大学课程论文模板”，或者点击 [链接]() 跳转。
+需要使用时可以直接在 Overleaf 的 Templates 中搜索 “湖南大学课程论文模板”，或者点击 [链接](https://www.overleaf.com/latex/templates/hu-nan-da-xue-ke-cheng-lun-wen-mo-ban-cn/rrgftptzpzss) 跳转。
 
 但由于 Overleaf 审核较慢，模板若有更新不能及时同步，因此也可以在 [GitHub Releases](https://github.com/zcyeee/HNU_LaTeX_Template/releases) 中下载模板源文件 `hnu_template.zip` ，在 Overleaf 中上传该压缩文件以创建一个新项目。注意，在正式编译前，需要先在 Overleaf 界面左上角点击 "Menu"：
 
@@ -42,7 +42,7 @@
 
 ### 2.本地编译
 
-在本地编译时需要配置好 LaTeX 环境，并推荐使用 Visual Studio Code 配合 LaTeX workshop 插件作为编辑器。
+在本地编译时需要配置好 LaTeX 环境，并推荐使用 Visual Studio Code 配合 LaTeX Workshop 插件作为编辑器。
 
 模板编译顺序为：XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX。
 
