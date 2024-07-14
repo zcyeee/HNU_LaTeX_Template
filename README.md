@@ -39,15 +39,24 @@
 
 
 
-
 ### 2.本地编译
 
 在本地编译时需要配置好 LaTeX 环境，并推荐使用 Visual Studio Code 配合 LaTeX Workshop 插件作为编辑器。
 
 模板编译顺序为：XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX。
 
-由于能力与时间有限，**作者并未在本地编译测试成功**。若有同学在本地测试成功，同样欢迎联系：chenyang@hnu.edu.cn。
+~~由于能力与时间有限，**作者并未在本地编译测试成功**。若有同学在本地测试成功，同样欢迎联系：chenyang@hnu.edu.cn。~~
 
+感谢 @Elthen41 的无私分享，本地编译具体使用的命令如下：
+
+```
+xelatex -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape main.tex
+bibtex main
+xelatex -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape main.tex
+xelatex -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape main.tex
+```
+
+注意：日志显示 JetBrains Mono 字体找不到，需要允许 LaTeX 在编译过程中执行外部命令来下载相应宏包，故需要在命令中启用 "-shell-escape" 选项，否则会编译失败。
 
 
 
