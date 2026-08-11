@@ -1,3 +1,5 @@
+
+
 # 湖南大学课程论文LaTeX模板（非官方）
 本项目是湖南大学课程论文 LaTeX 模板（非官方）。需要注意的是，该模板主要用于综合性论文，并非按照学位论文撰写规范编写，如有学位论文写作需求可移步
 [hnuthesis](https://github.com/yusanshi/hnuthesis)。
@@ -45,8 +47,6 @@
 
 模板编译顺序为：XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX。
 
-~~由于能力与时间有限，**作者并未在本地编译测试成功**。若有同学在本地测试成功，同样欢迎联系：chenyang@hnu.edu.cn。~~
-
 感谢 @Elthen41 的无私分享，本地编译具体使用的命令如下：
 
 ```
@@ -57,8 +57,3 @@ xelatex -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape main.
 ```
 
 注意：日志显示 JetBrains Mono 字体找不到，需要允许 LaTeX 在编译过程中执行外部命令来下载相应宏包，故需要在命令中启用 "-shell-escape" 选项，否则会编译失败。
-
-
-
-
-
